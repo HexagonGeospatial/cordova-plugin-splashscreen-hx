@@ -1,18 +1,18 @@
 {
-  "name": "cordova-plugin-splashscreen",
+  "name": "cordova-plugin-splashscreen-hx",
   "version": "7.0.0-dev",
-  "description": "Cordova Splashscreen Plugin",
+  "description": "Cordova Splashscreen Plugin (Hx)",
   "types": "./types/index.d.ts",
   "cordova": {
-    "id": "cordova-plugin-splashscreen",
+    "id": "cordova-plugin-splashscreen-hx",
     "platforms": [
       "android",
       "windows",
       "browser"
     ]
   },
-  "repository": "github:apache/cordova-plugin-splashscreen",
-  "bugs": "https://github.com/apache/cordova-plugin-splashscreen/issues",
+  "repository": "github:HexagonGeospatial/cordova-plugin-splashscreen-hx",
+  "bugs": "https://github.com/HexagonGeospatial/cordova-plugin-splashscreen-hx/issues",
   "keywords": [
     "cordova",
     "splashscreen",
@@ -38,7 +38,7 @@
         "cordova-ios": "<6.0.0"
       },
       "6.0.2": {
-        "cordova-android": ">=3.6.0 <11.0.0",
+        "cordova-android": ">=3.6.0",
         "cordova-windows": ">=4.4.0"
       },
       "8.0.0": {

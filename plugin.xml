@@ -19,33 +19,33 @@
 -->
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cordova-plugin-splashscreen"
+        id="cordova-plugin-splashscreen-hx"
         version="7.0.0-dev">
-    <name>Splashscreen</name>
-    <description>Cordova Splashscreen Plugin</description>
+    <name>SplashscreenHx</name>
+    <description>Cordova Splashscreen Plugin (Hx)</description>
     <license>Apache 2.0</license>
     <keywords>cordova,splashscreen</keywords>
-    <repo>https://github.com/apache/cordova-plugin-splashscreen.git</repo>
-    <issue>https://github.com/apache/cordova-plugin-splashscreen/issues</issue>
+    <repo>https://github.com/HexagonGeospatial/cordova-plugin-splashscreen-hx.git</repo>
+    <issue>https://github.com/HexagonGeospatial/cordova-plugin-splashscreen-hx/issues</issue>
 
     <engines>
-        <engine name="cordova-android" version=">=3.6.0 <11.0.0" /><!-- Requires CordovaPlugin.preferences -->
+        <engine name="cordova-android" version=">=3.6.0" /><!-- Requires CordovaPlugin.preferences -->
         <engine name="cordova-windows" version=">=4.4.0" />
     </engines>
 
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="SplashScreen">
-                <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen"/>
+            <feature name="SplashScreenHx">
+                <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreenHx"/>
                 <param name="onload" value="true"/>
             </feature>
         </config-file>
 
-        <source-file src="src/android/SplashScreen.java" target-dir="src/org/apache/cordova/splashscreen" />
+        <source-file src="src/android/SplashScreenHx.java" target-dir="src/org/apache/cordova/splashscreen" />
 
-        <js-module src="www/splashscreen.js" name="SplashScreen">
-            <clobbers target="navigator.splashscreen" />
+        <js-module src="www/splashscreenhx.js" name="SplashScreenHx">
+            <clobbers target="navigator.splashscreenhx" />
         </js-module>
     </platform>
 

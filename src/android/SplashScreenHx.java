@@ -48,8 +48,8 @@ import org.apache.cordova.CordovaWebView;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-public class SplashScreen extends CordovaPlugin {
-    private static final String LOG_TAG = "SplashScreen";
+public class SplashScreenHx extends CordovaPlugin {
+    private static final String LOG_TAG = "SplashScreenHx";
     // Cordova 3.x.x has a copy of this plugin bundled with it (SplashScreenInternal.java).
     // Enable functionality only if running on 4.x.x.
     private static final boolean HAS_BUILT_IN_SPLASH_SCREEN = Integer.valueOf(CordovaWebView.CORDOVA_VERSION.split("\\.")[0]) < 4;
@@ -81,7 +81,7 @@ public class SplashScreen extends CordovaPlugin {
 
     private int getSplashId() {
         int drawableId = 0;
-        String splashResource = preferences.getString("SplashScreen", "screen");
+        String splashResource = preferences.getString("SplashScreenHx", "screen");
         if (splashResource != null) {
             drawableId = cordova.getActivity().getResources().getIdentifier(splashResource, "drawable", cordova.getActivity().getClass().getPackage().getName());
             if (drawableId == 0) {
@@ -110,11 +110,11 @@ public class SplashScreen extends CordovaPlugin {
         orientation = cordova.getActivity().getResources().getConfiguration().orientation;
 
         if (firstShow) {
-            boolean autoHide = preferences.getBoolean("AutoHideSplashScreen", true);
+            boolean autoHide = preferences.getBoolean("AutoHideSplashScreenHx", true);
             showSplashScreen(autoHide);
         }
 
-        if (preferences.getBoolean("SplashShowOnlyFirstTime", true)) {
+        if (preferences.getBoolean("SplashHxShowOnlyFirstTime", true)) {
             firstShow = false;
         }
     }
@@ -123,12 +123,12 @@ public class SplashScreen extends CordovaPlugin {
      * Shorter way to check value of "SplashMaintainAspectRatio" preference.
      */
     private boolean isMaintainAspectRatio () {
-        return preferences.getBoolean("SplashMaintainAspectRatio", false);
+        return preferences.getBoolean("SplashHxMaintainAspectRatio", false);
     }
 
     private int getFadeDuration () {
-        int fadeSplashScreenDuration = preferences.getBoolean("FadeSplashScreen", true) ?
-            preferences.getInteger("FadeSplashScreenDuration", DEFAULT_FADE_DURATION) : 0;
+        int fadeSplashScreenDuration = preferences.getBoolean("FadeSplashScreenHx", true) ?
+            preferences.getInteger("FadeSplashScreenHxDuration", DEFAULT_FADE_DURATION) : 0;
 
         if (fadeSplashScreenDuration < 30) {
             // [CB-9750] This value used to be in decimal seconds, so we will assume that if someone specifies 10
@@ -164,13 +164,13 @@ public class SplashScreen extends CordovaPlugin {
         if (action.equals("hide")) {
             cordova.getActivity().runOnUiThread(new Runnable() {
                 public void run() {
-                    webView.postMessage("splashscreen", "hide");
+                    webView.postMessage("splashscreenhx", "hide");
                 }
             });
         } else if (action.equals("show")) {
             cordova.getActivity().runOnUiThread(new Runnable() {
                 public void run() {
-                    webView.postMessage("splashscreen", "show");
+                    webView.postMessage("splashscreenhx", "show");
                 }
             });
         } else {
@@ -186,7 +186,7 @@ public class SplashScreen extends CordovaPlugin {
         if (HAS_BUILT_IN_SPLASH_SCREEN) {
             return null;
         }
-        if ("splashscreen".equals(id)) {
+        if ("splashscreenhx".equals(id)) {
             if ("hide".equals(data.toString())) {
                 this.removeSplashScreen(false);
             } else {
@@ -267,7 +267,7 @@ public class SplashScreen extends CordovaPlugin {
      */
     @SuppressWarnings("deprecation")
     private void showSplashScreen(final boolean hideAfterDelay) {
-        final int splashscreenTime = preferences.getInteger("SplashScreenDelay", DEFAULT_SPLASHSCREEN_DURATION);
+        final int splashscreenTime = preferences.getInteger("SplashScreenHxDelay", DEFAULT_SPLASHSCREEN_DURATION);
         final int drawableId = getSplashId();
 
         final int fadeSplashScreenDuration = getFadeDuration();
@@ -358,7 +358,7 @@ public class SplashScreen extends CordovaPlugin {
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
                 }
 
-                if (preferences.getBoolean("ShowSplashScreenSpinner", true)) {
+                if (preferences.getBoolean("ShowSplashScreenHxSpinner", true)) {
                     spinnerStart();
                 }
 
@@ -403,7 +403,7 @@ public class SplashScreen extends CordovaPlugin {
                 progressBar.setLayoutParams(layoutParams);
 
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                    String colorName = preferences.getString("SplashScreenSpinnerColor", null);
+                    String colorName = preferences.getString("SplashScreenHxSpinnerColor", null);
                     if(colorName != null){
                         int[][] states = new int[][] {
                             new int[] { android.R.attr.state_enabled}, // enabled
