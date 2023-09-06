@@ -6,6 +6,7 @@
   "cordova": {
     "id": "cordova-plugin-splashscreen",
     "platforms": [
+      "windows",
       "browser"
     ]
   },
@@ -15,6 +16,7 @@
     "cordova",
     "splashscreen",
     "ecosystem:cordova",
+    "cordova-windows",
     "cordova-browser"
   ],
   "scripts": {
@@ -38,8 +40,7 @@
         "cordova-windows": ">=4.4.0"
       },
       "<7.0.0": {
-        "cordova-android": ">=3.6.0 <11.0.0",
-        "cordova-windows": ">=4.4.0"
+        "cordova-android": ">=3.6.0 <11.0.0"
       },
       "8.0.0": {
         "cordova": ">100"
