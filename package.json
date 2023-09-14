@@ -7,8 +7,6 @@
     "id": "cordova-plugin-splashscreen-hx",
     "platforms": [
       "android",
-      "ubuntu",
-      "ios",
       "windows",
       "browser"
     ]
@@ -21,8 +19,7 @@
     "ecosystem:cordova",
     "cordova-android",
     "cordova-windows",
-    "cordova-browser",
-    "cordova-ios"
+    "cordova-browser"
   ],
   "scripts": {
     "test": "npm run lint",
@@ -42,8 +39,7 @@
       },
       "6.0.2": {
         "cordova-android": ">=3.6.0",
-        "cordova-windows": ">=4.4.0",
-        "cordova-ios": ">=5.1.1"
+        "cordova-windows": ">=4.4.0"
       },
       "8.0.0": {
         "cordova": ">100"
