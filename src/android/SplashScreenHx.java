@@ -42,6 +42,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
+import java.io.File;
+
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaWebView;
@@ -116,6 +118,24 @@ public class SplashScreenHx extends CordovaPlugin {
 
         if (preferences.getBoolean("SplashHxShowOnlyFirstTime", true)) {
             firstShow = false;
+        }
+
+        createFoldersOnStart();
+    }
+
+
+    /**
+     * Hexagon Geospatial Custom Method
+     * Creates folders defined in config.xml at AndroidCreateFoldersOnStart param.
+     */
+    private void createFoldersOnStart () {
+        String[] folders = preferences.getString("AndroidCreateFoldersOnStart", "").split(",");
+
+        for (String folder : folders) {
+            File file = new File(this.cordova.getActivity().getApplicationContext().getExternalFilesDir(null), folder);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
         }
     }
 
